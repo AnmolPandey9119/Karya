@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Karya</title>
+<meta name="description" content="A simple todo app with a personal list and a shared team board.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232E5BFF'/%3E%3Cpath d='M9 17l5 5 9-11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Karya
+    </div>
+    <div class="seg" role="tablist" aria-label="Choose a view">
+      <button id="tab-me" role="tab" aria-selected="true">My tasks</button>
+      <button id="tab-team" role="tab" aria-selected="false">Team</button>
+    </div>
+  </header>
+
+  <section id="panel-me">
+    <div class="head">
+      <div>
+        <h1>My tasks</h1>
+        <p class="sub" id="me-sub"></p>
+      </div>
+      <div class="prog"><div class="bar"><i id="me-bar"></i></div><span id="me-count"></span></div>
+    </div>
+    <form class="add" id="me-form" autocomplete="off">
+      <input class="in grow" id="me-title" type="text" placeholder="Add a task and press Enter" aria-label="New task">
+      <input class="in" id="me-due" type="date" aria-label="Due date (optional)">
+      <button class="btn" type="submit">Add</button>
+    </form>
+    <div class="filters" id="me-filters"></div>
+    <ul class="list" id="me-list"></ul>
+    <div class="foot"><span id="me-note">Saved in this browser only.</span><button class="link" id="me-clear" hidden>Clear completed</button></div>
+  </section>
+
+  <section id="panel-team" hidden>
+    <div id="tm-notice"></div>
+    <div class="head">
+      <div>
+        <input class="proj" id="tm-name" type="text" placeholder="Name this project" aria-label="Project name" maxlength="80">
+        <p class="sub" id="tm-sub">Connecting to the team board…</p>
+      </div>
+      <div class="prog"><div class="bar"><i id="tm-bar"></i></div><span id="tm-count"></span></div>
+    </div>
+    <div class="people" id="tm-people"></div>
+    <form class="add editable" id="tt-form" autocomplete="off">
+      <input class="in grow" id="tt-title" type="text" placeholder="New team task" aria-label="New team task">
+      <select class="in" id="tt-who" aria-label="Assign to"></select>
+      <input class="in" id="tt-due" type="date" aria-label="Due date (optional)">
+      <button class="btn" type="submit">Add task</button>
+    </form>
+    <div class="board" id="tm-board"></div>
+  </section>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

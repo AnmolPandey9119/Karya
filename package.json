@@ -1,0 +1,11 @@
+{
+  "name": "karya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple todo app: personal list plus a shared team board. Static site with one Vercel serverless function.",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@neondatabase/serverless": "1.2.0"
+  },
+  "license": "MIT"
+}
